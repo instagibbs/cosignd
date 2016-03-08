@@ -80,7 +80,7 @@ def syncWallet(result, wallet, gaitwallet, path):
     hexpubkey = wallet.subkey(1).subkey(result['pointer']).public_copy().sec_as_hex()
     tproxy = Proxy()
 
-    GAKey = gaitwallet.subkey_for_path(path).subkey(result['pointer']).sec_as_hex()
+    GAKey = gaitwallet.subkey(1).subkey_for_path(path).subkey(result['pointer']).sec_as_hex()
 
     addrfromapi = P2SHBitcoinAddress.from_redeemScript(CScript(binascii.unhexlify(result['script'])))
     print(addrfromapi)
